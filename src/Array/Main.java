@@ -56,7 +56,6 @@ public class Main {
 
         System.out.println("The highest index where number appears " + arr.find(6));
 
-        // String to array of string
         System.out.println("We would find number in this index " + Arrays.toString(arr.findAll(6)) );
 
 
