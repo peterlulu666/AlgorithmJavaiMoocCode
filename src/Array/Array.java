@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Arrays;
+
 public class Array {
     // Create data array
     private int[] dataArray;
@@ -200,7 +202,7 @@ public class Array {
      * When the number exists in the array return the index of number
      *
      * @param number
-     * @return the lowest index where the number appears
+     * @return the highest index where the number appears
      */
     public int find(int number) {
         int index = -1;
@@ -215,6 +217,26 @@ public class Array {
         }
 
         return index;
+
+    }
+
+    public String findAll(int number) {
+        String index = "";
+        String[] allIndex;
+        for (int i = 0; i < numberOfElement; i++) {
+            if (dataArray[i] == number) {
+                index = index + i + " ";
+
+            }
+//            // Simplify
+//            index = dataArray[i] == number ? i : -1;
+
+        }
+
+        allIndex = index.split(" ");
+
+        // String to array of string
+        return (Arrays.toString(allIndex));
 
     }
 

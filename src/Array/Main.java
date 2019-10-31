@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -22,8 +24,13 @@ public class Main {
         }
         System.out.println(arr);
 
-        arr.add(1, 100);
+
+        arr.add(1, 6);
         System.out.println(arr);
+
+        System.out.println(arr.find(6));
+
+        System.out.println(arr.findAll(6));
 
         arr.addFirst(-1);
         System.out.println(arr);
@@ -36,6 +43,10 @@ public class Main {
 
         arr.removeFirst();
         System.out.println(arr);
+
+        System.out.println(arr.find(8));
+
+
 
     }
 }
