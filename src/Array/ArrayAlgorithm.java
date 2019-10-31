@@ -1,8 +1,6 @@
 package Array;
 
-import java.util.Arrays;
-
-public class Array {
+public class ArrayAlgorithm {
     // Create data array
     private int[] dataArray;
     // The number of element in array
@@ -15,7 +13,7 @@ public class Array {
      *
      * @param arraySize
      */
-    public Array(int arraySize) {
+    public ArrayAlgorithm(int arraySize) {
         this.arraySize = arraySize;
         dataArray = new int[this.arraySize];
         this.numberOfElement = 0;
@@ -25,7 +23,7 @@ public class Array {
     /**
      * Constructor, the default size is 10
      */
-    public Array() {
+    public ArrayAlgorithm() {
         this(10);
     }
 
@@ -220,9 +218,8 @@ public class Array {
 
     }
 
-    public String findAll(int number) {
+    public int[] findAll(int number) {
         String index = "";
-        String[] allIndex;
         for (int i = 0; i < numberOfElement; i++) {
             if (dataArray[i] == number) {
                 index = index + i + " ";
@@ -233,10 +230,18 @@ public class Array {
 
         }
 
-        allIndex = index.split(" ");
 
-        // String to array of string
-        return (Arrays.toString(allIndex));
+        // String to array of integer
+        String[] indexSplit = index.split(" ");
+        int[] allIndex = new int[indexSplit.length];
+        for (int i = 0; i < indexSplit.length; i++) {
+            allIndex[i] = Integer.parseInt(indexSplit[i]);
+
+
+        }
+
+        return allIndex;
+
 
     }
 
@@ -306,7 +311,7 @@ public class Array {
 
     /**
      * removeNumber
-     * Remove the number in the lowest index where it appears
+     * Remove the number in the highest index where it appears
      *
      * @param number
      */
@@ -316,6 +321,27 @@ public class Array {
             remove(index);
 
         }
+
+    }
+
+    public void removeAllNumber(int number) {
+        int count = 0;
+        int findAllLength = findAll(number).length;
+        while (true){
+            if (count == findAllLength){
+                break;
+            }
+            else {
+                remove(Integer.parseInt(String.valueOf(findAll(number)[0])));
+                count++;
+
+            }
+        }
+//        for (int i = 0; i < Integer.parseInt(String.valueOf(findAll(number).length())); i++) {
+//            remove(Integer.parseInt(String.valueOf(findAll(number).charAt(0))));
+//
+//        }
+
 
     }
 

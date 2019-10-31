@@ -1,6 +1,7 @@
 package Array;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -18,34 +19,65 @@ public class Main {
 //            System.out.println(score[i]);
 //        }
 
-        var arr = new Array(20);
-        for (int i = 0; i < 10; i++) {
-            arr.addLast(i);
+//        var arr = new Array(20);
+//        for (int i = 0; i < 10; i++) {
+//            arr.addLast(i);
+//        }
+//        System.out.println(arr);
+
+//        // StringBuilder
+//        StringBuilder arrayString = new StringBuilder();
+        String numbers = "";
+        // User input number to array
+        while (true) {
+            System.out.println("Enter a number or press q to quit ");
+            Scanner scanner = new Scanner(System.in);
+            String number = scanner.nextLine();
+            if (number.equals("q")) {
+                break;
+
+            }
+
+            numbers = numbers + number;
+//            // StringBuilder
+//            arrayString.append(numberString);
         }
-        System.out.println(arr);
+
+        // String to array of integer
+        var arr = new ArrayAlgorithm(numbers.length() + 1);
+        for (int i = 0; i < numbers.length(); i++) {
+            arr.addLast(Integer.parseInt(numbers.split("")[i]));
+
+        }
 
 
         arr.add(1, 6);
         System.out.println(arr);
 
-        System.out.println(arr.find(6));
+        System.out.println("The highest index where number appears " + arr.find(6));
 
-        System.out.println(arr.findAll(6));
+        // String to array of string
+        System.out.println("We would find number in this index " + Arrays.toString(arr.findAll(6)) );
 
-        arr.addFirst(-1);
+
+
+
         System.out.println(arr);
 
-        arr.remove(2);
+        arr.remove(3);
         System.out.println(arr);
 
-        arr.removeNumber(4);
+        arr.removeNumber(7);
+        System.out.println(arr);
+
+        arr.removeAllNumber(6);
         System.out.println(arr);
 
         arr.removeFirst();
         System.out.println(arr);
 
-        System.out.println(arr.find(8));
-
+        arr.removeLast();
+        System.out.println(arr);
 
 
     }
