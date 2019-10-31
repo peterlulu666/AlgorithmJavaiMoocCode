@@ -2,7 +2,7 @@ package StringToArrayOfInteger;
 
 public class Main {
     public static void main(String[] args) {
-        // String to array
+        // String to array of integer
         String str = "1 2 3 4 5 6 7 8 9 10";
         var stringToArray = new StringToArray(str, " ");
         stringToArray.strToArr();
@@ -14,7 +14,7 @@ public class Main {
         var arrayToArray = new StringToArray(strArray);
         arrayToArray.stringArrayToIntegerArray();
         System.out.println(arrayToArray);
-        // Consecutive string to array
+        // Consecutive string to array of integer
         String strConsecutive = "12345678910";
         var stringToArrayConsecutive = new StringToArray(strConsecutive);
         stringToArrayConsecutive.strToArrConsecutive();
