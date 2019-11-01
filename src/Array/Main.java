@@ -19,36 +19,36 @@ public class Main {
 //            System.out.println(score[i]);
 //        }
 
-//        var arr = new Array(20);
-//        for (int i = 0; i < 10; i++) {
-//            arr.addLast(i);
+        var arr = new ArrayGenerics<Integer>(20);
+        for (int i = 0; i < 10; i++) {
+            arr.addLast(i);
+        }
+        System.out.println(arr);
+
+////        // StringBuilder
+////        StringBuilder arrayString = new StringBuilder();
+//        String numbers = "";
+//        // User input number to array
+//        while (true) {
+//            System.out.println("Enter a number or press q to quit ");
+//            Scanner scanner = new Scanner(System.in);
+//            String number = scanner.nextLine();
+//            if (number.equals("q")) {
+//                break;
+//
+//            }
+//
+//            numbers = numbers + number;
+////            // StringBuilder
+////            arrayString.append(numberString);
 //        }
-//        System.out.println(arr);
-
-//        // StringBuilder
-//        StringBuilder arrayString = new StringBuilder();
-        String numbers = "";
-        // User input number to array
-        while (true) {
-            System.out.println("Enter a number or press q to quit ");
-            Scanner scanner = new Scanner(System.in);
-            String number = scanner.nextLine();
-            if (number.equals("q")) {
-                break;
-
-            }
-
-            numbers = numbers + number;
-//            // StringBuilder
-//            arrayString.append(numberString);
-        }
-
-        // String to array of integer
-        var arr = new ArrayAlgorithm(numbers.length() + 1);
-        for (int i = 0; i < numbers.length(); i++) {
-            arr.addLast(Integer.parseInt(numbers.split("")[i]));
-
-        }
+//
+//        // String to array of integer
+//        var arr = new ArrayAlgorithm(numbers.length() + 1);
+//        for (int i = 0; i < numbers.length(); i++) {
+//            arr.addLast(Integer.parseInt(numbers.split("")[i]));
+//
+//        }
 
 
         arr.add(1, 6);
