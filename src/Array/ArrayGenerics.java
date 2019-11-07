@@ -222,6 +222,7 @@ public class ArrayGenerics<E> {
         String index = "";
         for (int i = 0; i < numberOfElement; i++) {
             if (dataArray[i] == number) {
+
                 index = index + i + " ";
 
             }

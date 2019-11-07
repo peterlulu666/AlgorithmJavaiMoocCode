@@ -15,6 +15,8 @@ public class Main {
         arrayToArray.stringArrayToIntegerArray();
         System.out.println(arrayToArray);
         // Consecutive string to array of integer
+        // Contiguous string to array of integer
+        // successive string to array of integer
         String strConsecutive = "12345678910";
         var stringToArrayConsecutive = new StringToArray(strConsecutive);
         stringToArrayConsecutive.strToArrConsecutive();
