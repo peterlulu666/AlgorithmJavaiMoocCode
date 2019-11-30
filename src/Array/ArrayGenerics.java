@@ -15,6 +15,7 @@ public class ArrayGenerics<E> {
      */
     public ArrayGenerics(int arraySize) {
         this.arraySize = arraySize;
+        // Generic array
         dataArray = (E[]) new Object[this.arraySize];
         this.numberOfElement = 0;
 
