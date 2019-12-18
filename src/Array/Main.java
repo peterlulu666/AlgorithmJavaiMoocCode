@@ -78,6 +78,44 @@ public class Main {
         arr.removeLast();
         System.out.println(arr);
 
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        arr.addLast(100);
+        System.out.println(arr);
+
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        System.out.println(arr);
+
+
+
+
+
 
     }
 }

@@ -1,6 +1,6 @@
-package Array;
+package Stack;
 
-public class ArrayGenerics<E> {
+public class Array<E> {
     // Create data array
     private E[] dataArray;
     // The number of element in array
@@ -13,7 +13,7 @@ public class ArrayGenerics<E> {
      *
      * @param arraySize
      */
-    public ArrayGenerics(int arraySize) {
+    public Array(int arraySize) {
         this.arraySize = arraySize;
         // Generic array
         dataArray = (E[]) new Object[this.arraySize];
@@ -24,7 +24,7 @@ public class ArrayGenerics<E> {
     /**
      * Constructor, the default size is 10
      */
-    public ArrayGenerics() {
+    public Array() {
         this(10);
     }
 
@@ -47,7 +47,12 @@ public class ArrayGenerics<E> {
 
     }
 
-//    /**
+    public int getSize() {
+        return numberOfElement;
+
+    }
+
+    //    /**
 //     * Add element in the rear of array
 //     */
 //    public void addLast(int number) {
