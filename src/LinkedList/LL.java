@@ -1,33 +1,33 @@
 package LinkedList;
 
-public interface LL<E> {
-    void add(int index, E data);
+public interface LL<AnyType> {
+    void add(int index, AnyType data);
 
-    void addFirst(E data);
+    void addFirst(AnyType data);
 
-    void addLast(E data);
+    void addLast(AnyType data);
 
-    boolean contains(E data);
+    boolean contains(AnyType data);
 
-    E get(int index);
+    AnyType get(int index);
 
-    E getFirst();
+    AnyType getFirst();
 
-    E getLast();
+    AnyType getLast();
 
     int getSize();
 
     boolean isEmpty();
 
-    E removeNode(E data);
+    AnyType removeNode(AnyType data);
 
-    E remove(int index);
+    AnyType remove(int index);
 
-    E removeFirst();
+    AnyType removeFirst();
 
-    E removeLast();
+    AnyType removeLast();
 
-    void set(int index, E data);
+    void set(int index, AnyType data);
 
 
 }

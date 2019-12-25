@@ -1,10 +1,10 @@
 package LinkedList;
 
-public class Node<E> {
+public class Node<AnyType> {
     Node next;
-    E data;
+    AnyType data;
 
-    public Node(E data) {
+    public Node(AnyType data) {
         this.data = data;
         this.next = null;
 

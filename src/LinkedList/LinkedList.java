@@ -1,7 +1,7 @@
 package LinkedList;
 
-public class LinkedList<E> implements LL<E> {
-    Node<E> head;
+public class LinkedList<AnyType> implements LL<AnyType> {
+    Node<AnyType> head;
     int currentSize;
 
     public LinkedList() {
@@ -11,7 +11,7 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public void add(int index, E data) {
+    public void add(int index, AnyType data) {
         if (index < 0 || index > currentSize) {
             throw new IllegalArgumentException("The index should be between 0 and linked list size. ");
 
@@ -21,8 +21,8 @@ public class LinkedList<E> implements LL<E> {
             return;
 
         }
-        Node<E> newNode = new Node<E>(data);
-        Node<E> tmpPointer = head;
+        Node<AnyType> newNode = new Node<AnyType>(data);
+        Node<AnyType> tmpPointer = head;
         for (int countMove = 1; countMove <= index - 1; countMove++) {
             tmpPointer = tmpPointer.next;
 
@@ -34,8 +34,8 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public void addFirst(E data) {
-        Node<E> newNode = new Node<E>(data);
+    public void addFirst(AnyType data) {
+        Node<AnyType> newNode = new Node<AnyType>(data);
         newNode.next = head;
         head = newNode;
         currentSize++;
@@ -43,14 +43,14 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public void addLast(E data) {
+    public void addLast(AnyType data) {
         if (head == null) {
             addFirst(data);
             return;
 
         }
-        Node<E> newNode = new Node<E>(data);
-        Node<E> tmpPointer = head;
+        Node<AnyType> newNode = new Node<AnyType>(data);
+        Node<AnyType> tmpPointer = head;
         for (int countMove = 1; countMove < currentSize; countMove++) {
             tmpPointer = tmpPointer.next;
 
@@ -62,13 +62,14 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public boolean contains(E data) {
-        if (head == null) {
+    public boolean contains(AnyType data) {
+        if (this.head == null) {
             return false;
 
         }
-        Node<E> tmpPointer = head;
-        while (tmpPointer != null) {
+        Node<AnyType> tmpPointer = this.head;
+        // Traverse the pointer to last node and run the code
+        for (int compareWithIndex = 0; compareWithIndex <= this.currentSize - 1; compareWithIndex++) {
             if (tmpPointer.data.equals(data)) {
                 return true;
 
@@ -78,15 +79,35 @@ public class LinkedList<E> implements LL<E> {
         }
         return false;
 
+//        if (head == null) {
+//            return false;
+//
+//        }
+//        Node<AnyType> tmpPointer = head;
+//        // Traverse the pointer to the last node and run the code
+//        while (tmpPointer != null) {
+//            if (tmpPointer.data.equals(data)) {
+//                return true;
+//
+//            }
+//            tmpPointer = tmpPointer.next;
+//
+//        }
+//        return false;
+
     }
 
     @Override
-    public E get(int index) {
+    public AnyType get(int index) {
+        if (head == null) {
+            return null;
+
+        }
         if (index < 0 || index > currentSize) {
             throw new IllegalArgumentException("The index should be between 0 and linked list size. ");
 
         }
-        Node<E> tmpPointer = head;
+        Node<AnyType> tmpPointer = head;
         for (int countMove = 1; countMove <= index; countMove++) {
             tmpPointer = tmpPointer.next;
 
@@ -96,20 +117,40 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public E getFirst() {
+    public AnyType getFirst() {
+        if (head == null) {
+            return null;
+
+        }
         return head.data;
 //        return get(0);
 
     }
 
     @Override
-    public E getLast() {
-        Node<E> tmpPointer = head;
-        for (int countMove = 1; countMove <= currentSize - 1; countMove++) {
+    public AnyType getLast() {
+        if (this.head == null) {
+            return null;
+
+        }
+        Node<AnyType> tmpPointer = this.head;
+        // Traverse to the second last node and run the code
+        while (tmpPointer.next != null) {
             tmpPointer = tmpPointer.next;
 
         }
         return tmpPointer.data;
+
+//        if (head == null){
+//            return null;
+//
+//        }
+//        Node<AnyType> tmpPointer = head;
+//        for (int moveToIndex = 1; moveToIndex <= currentSize - 1; moveToIndex++) {
+//            tmpPointer = tmpPointer.next;
+//
+//        }
+//        return tmpPointer.data;
 //        return get(currentSize - 1);
 //        Node<E> tmpPointer = head;
 //        // Traverse to the second last node and run the code
@@ -134,7 +175,7 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public E removeNode(E data) {
+    public AnyType removeNode(AnyType data) {
         if (head == null) {
             return null;
 
@@ -143,8 +184,8 @@ public class LinkedList<E> implements LL<E> {
             return removeFirst();
 
         }
-        Node<E> tmpPointer = head;
-        Node<E> prevPointer = null;
+        Node<AnyType> tmpPointer = head;
+        Node<AnyType> prevPointer = null;
         while (tmpPointer != null) {
             if (tmpPointer.data.equals(data)) {
                 prevPointer.next = tmpPointer.next;
@@ -162,21 +203,25 @@ public class LinkedList<E> implements LL<E> {
 
 
     @Override
-    public E remove(int index) {
+    public AnyType remove(int index) {
+        if (head == null) {
+            return null;
+
+        }
         if (index < 0 || index > currentSize) {
             throw new IllegalArgumentException("The index should be between 0 and linked list size. ");
 
         }
-        Node<E> tmpPointer = head;
         if (index == 0) {
             return removeFirst();
 
         }
-        for (int i = 1; i <= index - 1; i++) {
+        Node<AnyType> tmpPointer = head;
+        for (int countMove = 1; countMove <= index - 1; countMove++) {
             tmpPointer = tmpPointer.next;
 
         }
-        E removedData = (E) tmpPointer.next.data;
+        AnyType removedData = (AnyType) tmpPointer.next.data;
         tmpPointer.next = tmpPointer.next.next;
         currentSize--;
         return removedData;
@@ -184,13 +229,13 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public E removeFirst() {
+    public AnyType removeFirst() {
         if (head == null) {
             return null;
 
         }
-        E removedData = head.data;
-        Node<E> tmpPointer = head;
+        AnyType removedData = head.data;
+        Node<AnyType> tmpPointer = head;
         tmpPointer = tmpPointer.next;
         head = tmpPointer;
         currentSize--;
@@ -199,7 +244,7 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public E removeLast() {
+    public AnyType removeLast() {
         if (head == null) {
             return null;
 
@@ -208,12 +253,12 @@ public class LinkedList<E> implements LL<E> {
             return removeFirst();
 
         }
-        Node<E> tmpPointer = head;
+        Node<AnyType> tmpPointer = head;
         for (int i = 1; i <= currentSize - 2; i++) {
             tmpPointer = tmpPointer.next;
 
         }
-        E removedData = (E) tmpPointer.next.data;
+        AnyType removedData = (AnyType) tmpPointer.next.data;
         tmpPointer.next = null;
         currentSize--;
         return removedData;
@@ -221,7 +266,7 @@ public class LinkedList<E> implements LL<E> {
     }
 
     @Override
-    public void set(int index, E data) {
+    public void set(int index, AnyType data) {
         if (head == null) {
             return;
 
@@ -230,7 +275,7 @@ public class LinkedList<E> implements LL<E> {
             throw new IllegalArgumentException("The index should be between 0 and linked list size. ");
 
         }
-        Node<E> tmpPointer = head;
+        Node<AnyType> tmpPointer = head;
         for (int countMove = 1; countMove <= index; countMove++) {
             tmpPointer = tmpPointer.next;
 
@@ -240,7 +285,7 @@ public class LinkedList<E> implements LL<E> {
     }
 
     public void show() {
-        Node<E> tmpPointer = head;
+        Node<AnyType> tmpPointer = head;
         for (int i = 0; i < currentSize; i++) {
             System.out.print("[ " + tmpPointer.data + " ]-> ");
             tmpPointer = tmpPointer.next;
