@@ -23,7 +23,7 @@ public class LinkedList<E> implements LL<E> {
         }
         Node<E> newNode = new Node<E>(data);
         Node<E> tmpPointer = head;
-        for (int i = 1; i <= index - 1; i++) {
+        for (int countMove = 1; countMove <= index - 1; countMove++) {
             tmpPointer = tmpPointer.next;
 
         }
@@ -51,7 +51,7 @@ public class LinkedList<E> implements LL<E> {
         }
         Node<E> newNode = new Node<E>(data);
         Node<E> tmpPointer = head;
-        for (int i = 1; i < currentSize; i++) {
+        for (int countMove = 1; countMove < currentSize; countMove++) {
             tmpPointer = tmpPointer.next;
 
         }
@@ -63,6 +63,10 @@ public class LinkedList<E> implements LL<E> {
 
     @Override
     public boolean contains(E data) {
+        if (head == null) {
+            return false;
+
+        }
         Node<E> tmpPointer = head;
         while (tmpPointer != null) {
             if (tmpPointer.data.equals(data)) {
@@ -94,17 +98,26 @@ public class LinkedList<E> implements LL<E> {
     @Override
     public E getFirst() {
         return head.data;
+//        return get(0);
 
     }
 
     @Override
     public E getLast() {
         Node<E> tmpPointer = head;
-        for (int i = 1; i <= currentSize - 1; i++) {
+        for (int countMove = 1; countMove <= currentSize - 1; countMove++) {
             tmpPointer = tmpPointer.next;
 
         }
         return tmpPointer.data;
+//        return get(currentSize - 1);
+//        Node<E> tmpPointer = head;
+//        // Traverse to the second last node and run the code
+//        while(tmpPointer.next != null){
+//            tmpPointer = tmpPointer.next;
+//
+//        }
+//        return tmpPointer.data;
 
     }
 
@@ -126,7 +139,7 @@ public class LinkedList<E> implements LL<E> {
             return null;
 
         }
-        if (head.data.equals(data)){
+        if (head.data.equals(data)) {
             return removeFirst();
 
         }
@@ -209,6 +222,10 @@ public class LinkedList<E> implements LL<E> {
 
     @Override
     public void set(int index, E data) {
+        if (head == null) {
+            return;
+
+        }
         if (index < 0 || index > currentSize - 1) {
             throw new IllegalArgumentException("The index should be between 0 and linked list size. ");
 
@@ -254,6 +271,8 @@ public class LinkedList<E> implements LL<E> {
         linkedList.set(2, 600);
         linkedList.show();
         System.out.println(linkedList.removeNode(1000));
+        linkedList.set(0, 500);
+        linkedList.removeNode(500);
         linkedList.show();
 
 
